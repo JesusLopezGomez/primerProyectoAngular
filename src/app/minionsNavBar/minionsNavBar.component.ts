@@ -1,22 +1,24 @@
-import { CommonModule } from '@angular/common';
 import { Component, EventEmitter, Output } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { MinionsService } from '../services/minions.service';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-minionsNavBar',
   standalone: true,
-  imports: [FormsModule],
+  imports: [FormsModule,RouterLink],
   templateUrl: './minionsNavBar.component.html',
   styleUrl: './minionsNavBar.component.css'
 })
 
 export class MinionsNavBarComponent {
+  constructor(private minionsService:MinionsService){}
+
   termino:string = ""; 
 
   @Output() emitir:EventEmitter<string> = new EventEmitter<string>();
 
   setTermino(){
-    
     this.emitir.emit(this.termino);
   }
 }
