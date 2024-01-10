@@ -1,11 +1,12 @@
 import { Component } from '@angular/core';
 import { Minion } from '../interface/minion';
 import { CommonModule } from '@angular/common';
+import { RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
 
 @Component({
   selector: 'app-minions',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule,RouterLink,RouterLinkActive,RouterOutlet],
   templateUrl: './minions.component.html',
   styleUrl: './minions.component.css'
 })

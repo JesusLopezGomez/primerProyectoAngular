@@ -7,7 +7,7 @@ h1{
 }
 
 .container{
-    display: flex;
+    display: grid;
     align-items: center;
     justify-content: center;
 }
@@ -33,13 +33,4 @@ h1{
 
 .heart{
     cursor: pointer;
-}
-
-.child1{
-    display: flex;
-    max-width: 1000px;
-}
-
-.active{
-    width: 40px;
 }

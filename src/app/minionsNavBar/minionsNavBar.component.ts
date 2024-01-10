@@ -1,7 +1,6 @@
 import { Component, EventEmitter, Output } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { MinionsService } from '../services/minions.service';
-import { RouterLink } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-minionsNavBar',
@@ -12,7 +11,7 @@ import { RouterLink } from '@angular/router';
 })
 
 export class MinionsNavBarComponent {
-  constructor(private minionsService:MinionsService){}
+  constructor(private router:Router){}
 
   termino:string = ""; 
 
@@ -20,5 +19,9 @@ export class MinionsNavBarComponent {
 
   setTermino(){
     this.emitir.emit(this.termino);
+  }
+
+  goTo(){
+    this.router.navigate(["infoMinion",this.termino]);
   }
 }

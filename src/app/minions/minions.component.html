@@ -1,4 +1,4 @@
-<h1>Minions</h1>
+<!--<h1>Minions</h1>
 <div class="container">
     <div class="card" style="width: 20rem;" *ngFor="let minion of minions">
             <div class="icon" *ngIf="!favorites.includes(minion);else favorite">
@@ -24,10 +24,12 @@
                 <ng-template #malo><div class="divBueno"><img class="buenoMalo" src="../../assets/img/de los malos.PNG" alt=""></div></ng-template>
             </div>
         </div>
-</div>
+</div>-->
 
 <h1>Minions utilizando angular 17</h1>
 <div class="container">
+
+    <div class="child1">
 @for (minion of minions; track $index) {
     
     <div class="card" style="width: 20rem;">
@@ -44,7 +46,7 @@
                 </svg>
             </div>
         }
-        <img class="card-img-top" src={{minion.img}} alt="Card image cap">
+        <img class="card-img-top" src={{minion.img}} alt="Card image cap" [routerLink]="['/minions/info',minion.name]" routerLinkActive="active">
                 <div class="card-body">
                     <h5 class="card-title">{{minion.name}}</h5>
                     <p class="card-text">{{minion.bio}}</p>
@@ -55,7 +57,12 @@
                     }@else {
                         <div class="divBueno"><img class="buenoMalo" src="../../assets/img/de los malos.PNG" alt=""></div>
                     }
+                    <a class="btn bg-primary" [routerLink]="['/infoMinion',minion.name]" routerLinkActive="router-link-active" >Info</a>
                 </div>
-            </div>
+        </div>
 }
+    </div>
+    <div class="child2">
+        <router-outlet></router-outlet>
+    </div>
 </div>

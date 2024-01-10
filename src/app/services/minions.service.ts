@@ -75,4 +75,8 @@ export class MinionsService {
   getFilterMinions(term:string):Minion[]{
     return this.minions.filter(minion => minion.name.toLocaleLowerCase().startsWith(term.toLocaleLowerCase()));
   } 
+
+  getMinionByName(name:string):Minion[]{
+    return this.minions.filter(minion => minion.name.toLocaleLowerCase().startsWith(name.toLocaleLowerCase()));
+  }
 }
