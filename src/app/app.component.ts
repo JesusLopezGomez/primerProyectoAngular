@@ -6,6 +6,7 @@ import { MinionsComponent } from './minions/minions.component';
 import { Minion } from './interface/minion';
 import { MinionsFiltradosComponent } from './minions-filtrados/minions-filtrados.component';
 import { MinionsService } from './services/minions.service';
+import { InfoMinionIdComponent } from './info-minion-id/info-minion-id.component';
 
 @Component({
   selector: 'app-root',
@@ -19,7 +20,7 @@ export class AppComponent {
   
   constructor(private minionsService:MinionsService){}
 
-  miniosFiltrados:Minion[] = this.minionsService.getMinions();
+  miniosFiltrados:Minion[] = [];
 
   term:string = ""; 
 

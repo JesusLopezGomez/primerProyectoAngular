@@ -46,7 +46,7 @@
                 </svg>
             </div>
         }
-        <img class="card-img-top" src={{minion.img}} alt="Card image cap" [routerLink]="['/minions/info',minion.name]" routerLinkActive="active">
+        <img class="card-img-top" src={{minion.img}} alt="Card image cap" [routerLink]="['infoMinionId',minion.id]" routerLinkActive="active">
                 <div class="card-body">
                     <h5 class="card-title">{{minion.name}}</h5>
                     <p class="card-text">{{minion.bio}}</p>

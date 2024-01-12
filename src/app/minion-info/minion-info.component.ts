@@ -16,6 +16,9 @@ export class MinionInfoComponent implements OnChanges{
   constructor(private serviceMinion:MinionsService){}
 
   ngOnChanges(){
-    this.minions = this.serviceMinion.getMinionByName(this.name);
+    this.serviceMinion.getMinionByName(this.name)
+    .subscribe({
+      next: (minions) => this.minions = minions,
+    })
   }
 }

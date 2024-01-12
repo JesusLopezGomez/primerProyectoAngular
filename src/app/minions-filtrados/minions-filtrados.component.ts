@@ -12,15 +12,19 @@ import { MinionsService } from '../services/minions.service';
 export class MinionsFiltradosComponent implements OnChanges,OnInit{
   @Input() termino:string = "";
 
-  minionsFiltrados:Minion[] = []
+  minionsFiltrados:Minion[] = [];
+
   constructor(private minionsService:MinionsService){ }
 
-
   ngOnInit(): void {
-    this.minionsFiltrados = this.minionsService.getMinions();
+  /*  this.minionsService.getMinionByName(this.termino).subscribe({
+      next: (minions) => this.minionsFiltrados = minions,
+    })*/
   }
 
   ngOnChanges(): void {
-    this.minionsFiltrados = this.minionsService.getFilterMinions(this.termino);
+   /* this.minionsService.getMinionByName(this.termino).subscribe({
+      next: (minions) => this.minionsFiltrados = minions,
+    });*/
   }
 }
