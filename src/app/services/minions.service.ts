@@ -22,16 +22,20 @@ export class MinionsService{
     return this.http.get<Minion[]>(`${this.url}?name=${name}`);
   }
 
-  getMinionById(id:string):Observable<Minion[]>{
-    return this.http.get<Minion[]>(`${this.url}?id=${id}`);
+  getMinionById(id:string):Observable<Minion>{
+    return this.http.get<Minion>(`${this.url}/${id}`);
   }
-/*
-  getFilterMinions(term:string):Minion[]{
-    return this.minions.filter(minion => minion.name.toLocaleLowerCase().startsWith(term.toLocaleLowerCase()));
-  } 
 
-  getMinionByName(name:string):Minion[]{
-    return this.minions.filter(minion => minion.name.toLocaleLowerCase().startsWith(name.toLocaleLowerCase()));
+  addMinion(minion:Omit<Minion,"id">):Observable<Minion>{
+    return this.http.post<Minion>(this.url,minion);
   }
-  */
+
+  editMinion(minion:Minion):Observable<Minion>{
+    return this.http.put<Minion>(`${this.url}/${minion.id}`,minion);
+  }
+
+  deleteMinion(id:string):Observable<Minion>{
+    return this.http.delete<Minion>(`${this.url}/${id}`);
+  }
+
 }

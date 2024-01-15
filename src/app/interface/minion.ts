@@ -1,8 +1,8 @@
 export interface Minion {
-    id:String,
-    name:String,
-    bio:String,
-    img:String,
-    birth:String,
-    side:String
+    id:string,
+    name:string,
+    bio:string,
+    img:string,
+    birth:string,
+    side:string
 }

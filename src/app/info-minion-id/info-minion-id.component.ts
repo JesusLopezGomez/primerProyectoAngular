@@ -14,13 +14,13 @@ import { CommonModule } from '@angular/common';
 export class InfoMinionIdComponent {
 
   @Input() id:string = "";
-  minions!:Minion[];
+  minion!:Minion;
   constructor(private serviceMinion:MinionsService){}
 
   ngOnChanges(){
     this.serviceMinion.getMinionById(this.id)
     .subscribe({
-      next: (minions) => this.minions = minions,
+      next: (minion) => this.minion = minion,
     })
   }
 

@@ -46,7 +46,11 @@
                 </svg>
             </div>
         }
-        <img class="card-img-top" src={{minion.img}} alt="Card image cap" [routerLink]="['infoMinionId',minion.id]" routerLinkActive="active">
+        @if (minion.img) {
+            <img class="card-img-top" src={{minion.img}} alt="Card image cap" [routerLink]="['infoMinionId',minion.id]" routerLinkActive="active">
+        }@else {
+            <img class="card-img-top" src="https://img.freepik.com/vector-premium/vector-icono-imagen-predeterminado-pagina-imagen-faltante-diseno-sitio-web-o-aplicacion-movil-no-hay-foto-disponible_87543-11093.jpg" alt="Card image cap" [routerLink]="['infoMinionId',minion.id]" routerLinkActive="active">
+        }
                 <div class="card-body">
                     <h5 class="card-title">{{minion.name}}</h5>
                     <p class="card-text">{{minion.bio}}</p>
@@ -57,7 +61,15 @@
                     }@else {
                         <div class="divBueno"><img class="buenoMalo" src="../../assets/img/de los malos.PNG" alt=""></div>
                     }
-                    <a class="btn bg-primary" [routerLink]="['/infoMinion',minion.name]" routerLinkActive="router-link-active" >Info</a>
+                    <div>
+                        <a class="btn bg-primary" [routerLink]="['/infoMinion',minion.name]" routerLinkActive="router-link-active" >Info</a>
+                    </div>
+                    <div>
+                        <a class="btn bg-primary" [routerLink]="['/editMinion',minion.id]" routerLinkActive="router-link-active" >Edit</a>
+                    </div>
+                    <div>
+                        <a class="btn bg-primary" [routerLink]="['/deleteMinion',minion.id]" routerLinkActive="router-link-active" >Borrar</a>
+                    </div>
                 </div>
         </div>
 }
